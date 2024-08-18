@@ -66,6 +66,8 @@ class CubicSplineGrid(torch.nn.Module):
     @data.setter
     def data(self, grid_data: torch.Tensor) -> None:
         grid_data = coerce_to_multichannel_grid(grid_data, grid_ndim=self.ndim)
+        # FIXME: hardcoded
+        grid_data = grid_data.to(device='cuda')
         self._data = torch.nn.Parameter(grid_data)
 
     @property

@@ -16,7 +16,7 @@ CoordinateLike = Union[float, Sequence[float], torch.Tensor]
 
 
 class _CubicBSplineGrid(CubicSplineGrid):
-    _interpolation_matrix = CUBIC_B_SPLINE_MATRIX
+    _interpolation_matrix = CUBIC_B_SPLINE_MATRIX.to(device='cuda')
 
 
 class CubicBSplineGrid1d(_CubicBSplineGrid):
